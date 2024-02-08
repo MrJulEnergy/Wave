@@ -9,20 +9,20 @@ class Variables:
 
     # Boundaries
     boundary = (0, 2) # Square Lattice Grid
-    T = 4
+    T = 12
 
     # Number of Steps
     n_t = int(T/dt)
     n_x = int((boundary[1]-boundary[0])/dx)
 
     # Physics
-    c = 0.45 # speed of light
+    c = 0.1 # speed of light
     
     # 2nd Derivative
     C = np.power(c/dx, 2)
 
     # Animation
-    fps = 15
+    fps = 35
     stride_length = round(1/(dt * fps))
 
     # Extern
@@ -36,8 +36,8 @@ class Simulation:
         self.flow = np.zeros_like(self.E) # Flow of Electric field dE/dt
 
         # Set Inital Conditions
-        self.E[Variables.n_x//2, int(Variables.n_x//2.1)] = 1
-        self.E[Variables.n_x//2, int(Variables.n_x - Variables.n_x//2.1)] = 1
+        self.E[Variables.n_x//2, int(Variables.n_x//2.2)] = 1
+        self.E[Variables.n_x//2, int(Variables.n_x - Variables.n_x//2.2)] = 1
 
     def laplace_E(self):
         derivative = np.zeros_like(self.E)
