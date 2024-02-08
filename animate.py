@@ -28,7 +28,7 @@ plt.style.use('dark_background')
 def update(frame):
     ax.clear()
     curr_E = E[frame]
-    ax.imshow(curr_E, cmap="inferno", vmin=minimum*0.05, vmax=maximum*0.05, extent=(Variables.boundary[0], Variables.boundary[1], Variables.boundary[0], Variables.boundary[1]))
+    ax.imshow(curr_E, cmap="inferno", vmin=minimum, vmax=maximum, extent=(Variables.boundary[0], Variables.boundary[1], Variables.boundary[0], Variables.boundary[1]))
     ax.set_title(f"Time t={t[frame]:.2f} s")
 
 animation = FuncAnimation(fig, update, frames=len(E), interval=1/Variables.fps*1000)
